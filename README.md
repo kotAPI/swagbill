@@ -1,3 +1,3 @@
 # swagbill
 
-Play Swag Bill at https://kotapi.github.io/swagbill
+Play Swag Bill at kotapi.github.io/swagbill
