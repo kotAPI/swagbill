@@ -9,7 +9,7 @@
 <body class="background">
 	<embed src="hammer.mp3" width="0" height="0" loop="false" autostart="true" hidden="true" />
 
-	<div id="swag-bill"> SWAG<br>BILL</div>
+	<div id="swag-bill"> $WAG<br>BILL</div>
 	
 	<script type="text/javascript">
 	var earningsArrival = 0;
@@ -22,22 +22,33 @@
 		string = "Bill earns that in ";
 		
 		
+
 		var numdays = Math.floor(seconds / 86400);
+		seconds -= numdays*86400;
+
 		var numhours = Math.floor((seconds % 86400) / 3600);
+		seconds -= numhours*3600;
+
 		var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
-		var numseconds = (((seconds % 86400) % 3600) % 60).toFixed(0);
+
+		seconds -= numminutes*60;
+
+		var numseconds = (((seconds % 86400) % 3600) % 60);
 
 		//string += numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
-		if(numdays>1){
+		if(numdays>0){
 			string = string+ numdays +" days ";
 		}
-		if(numhours>1){
+		if(numhours>0){
 			string= string + numhours +" hours ";
 		}
-		if(numminutes>1){
+		if(numminutes>0){
 			string = string+ numminutes + " minutes ";
 		}
-		string = string + numseconds + " seconds."
+		if(numseconds>0){
+			string = string + numseconds + " seconds."
+		}
+		
 		document.getElementById("result").innerHTML = string;
 		console.log(string);
 
