@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Bill vs You</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script/helper.js"></script>
+</head>
+<body class="background">
+	<embed src="hammer.mp3" width="0" height="0" loop="false" autostart="true" hidden="true" />
+
+	<div id="swag-bill"> SWAG<br>BILL</div>
+	
+	<script type="text/javascript">
+	var earningsArrival = 0;
+	var billEarnings = 16500;
+
+	function getEarnings(){
+		var earnings=document.getElementById("input-box").value;		
+		 //holy shit!
+		var seconds = earnings/billEarnings;
+		string = "Bill earns that in ";
+		
+		
+		var numdays = Math.floor(seconds / 86400);
+		var numhours = Math.floor((seconds % 86400) / 3600);
+		var numminutes = Math.floor(((seconds % 86400) % 3600) / 60);
+		var numseconds = (((seconds % 86400) % 3600) % 60).toFixed(0);
+
+		//string += numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
+		if(numdays>1){
+			string = string+ numdays +" days ";
+		}
+		if(numhours>1){
+			string= string + numhours +" hours ";
+		}
+		if(numminutes>1){
+			string = string+ numminutes + " minutes ";
+		}
+		string = string + numseconds + " seconds."
+		document.getElementById("result").innerHTML = string;
+		console.log(string);
+
+
+
+		
+		
+
+		//window.alert(string);
+	}
+	
+window.onload=function(){
+		window.setInterval(function(){
+	  /// call your function here
+	  earningsArrival += billEarnings/10;
+	  document.getElementById("total-earnings").innerHTML = "He has already earned "+earningsArrival+" /- since you arrived.";
+
+		}, 100);
+
+}
+	
+
+
+	</script>
+	<form>
+		<input type="number" id="input-box" placeholder="In Rupees(please)"><div id="input-text">Your earnings?</div></input><br>
+		<input type="button" id="button-input" value="Calculate" onClick="getEarnings()">
+	</form>
+	<a id="share-button" href="https://www.facebook.com/dialog/feed?app_id=140586622674265&link=www.kotapi.github.io/swagbill&name=Swag Bill&redirect_uri=http%3A%2F%2Fs7.addthis.com%2Fstatic%2Fpostshare%2Fc00.html" target="_blank">Share this page on your wall</a>
+	<div id="result"> </div>
+	<div id="total-earnings">test</div>
+</body>
+</html>
