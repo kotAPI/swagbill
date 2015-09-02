@@ -34,7 +34,7 @@
 		seconds -= numminutes*60;
 
 		var numseconds = (((seconds % 86400) % 3600) % 60);
-		numseconds = Math.floor(numseconds);
+		numseconds =numseconds.toFixed(0);
 
 		//string += numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
 		if(numdays>0){
